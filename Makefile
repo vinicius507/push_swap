@@ -6,7 +6,7 @@
 ##   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        ##
 ##                                                +#+#+#+#+#+   +#+           ##
 ##   Created: 2021/10/11 22:34:13 by vgoncalv          #+#    #+#             ##
-##   Updated: 2021/10/11 22:50:36 by vgoncalv         ###   ########.fr       ##
+##   Updated: 2021/10/11 23:22:29 by vgoncalv         ###   ########.fr       ##
 ##                                                                            ##
 ## ########################################################################## ##
 
@@ -19,7 +19,7 @@ SRC_DIR = ./src
 OBJ_DIR = ./build
 
 INCLUDES_DIR=./includes ./libft/includes
-INCLUDES := $(addprefix -I,$(INCLUDESDIR))
+INCLUDES := $(addprefix -I,$(INCLUDES_DIR))
 
 SRCS =
 OBJS := $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
@@ -29,11 +29,12 @@ RM = rm -f
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
+LIBFT_FLAGS = -L$(LIBFT_DIR) -lft
 
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) $^ $(SRC_DIR)/$(NAME).c $(LIBFT_FLAGS) -o $@
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)
