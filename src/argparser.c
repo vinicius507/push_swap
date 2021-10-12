@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   argparser.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 22:51:38 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/10/11 22:52:09 by vgoncalv         ###   ########.fr       */
+/*   Created: 2021/10/12 14:14:51 by vgoncalv          #+#    #+#             */
+/*   Updated: 2021/10/12 14:43:39 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft.h"
+int	argparse(int argc, char **argv)
+{
+	const char	*arg;
 
-int	argparse(int argc, char **argv);
-
-#endif
+	while (argc--)
+	{
+		arg = argv[argc];
+		while (*arg)
+		{
+			if (!ft_isdigit(*arg))
+				return (1);
+			arg++;
+		}
+	}
+	return (0);
+}

@@ -6,7 +6,7 @@
 ##   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        ##
 ##                                                +#+#+#+#+#+   +#+           ##
 ##   Created: 2021/10/11 22:34:13 by vgoncalv          #+#    #+#             ##
-##   Updated: 2021/10/11 23:22:29 by vgoncalv         ###   ########.fr       ##
+##   Updated: 2021/10/12 14:19:37 by vgoncalv         ###   ########.fr       ##
 ##                                                                            ##
 ## ########################################################################## ##
 
@@ -21,7 +21,7 @@ OBJ_DIR = ./build
 INCLUDES_DIR=./includes ./libft/includes
 INCLUDES := $(addprefix -I,$(INCLUDES_DIR))
 
-SRCS =
+SRCS = argparser.c
 OBJS := $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 SRCS := $(addprefix $(SRC_DIR)/,$(SRCS))
 
@@ -47,10 +47,11 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(OBJ_DIR)
 
 clean:
 	$(RM) -r $(OBJ_DIR)
-	make fclean -C $(LIBFT_DIR)
+	make clean -C $(LIBFT_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
+	make fclean -C $(LIBFT_DIR)
 
 re: fclean all
 
