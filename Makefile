@@ -35,6 +35,9 @@ all: $(NAME)
 $(NAME): $(LIBFT) $(OBJS)
 	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@
 
+$(LIBFT):
+	make -C $(LIBFT_DIR)
+
 $(OBJ_DIR):
 	mkdir $(OBJ_DIR)
 
