@@ -21,7 +21,7 @@ OBJ_DIR = ./build
 INCLUDES_DIR=./includes ./libft/includes
 INCLUDES := $(addprefix -I,$(INCLUDES_DIR))
 
-SRCS = argparser.c
+SRCS = argparser.c clear_stacks.c
 OBJS := $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 SRCS := $(addprefix $(SRC_DIR)/,$(SRCS))
 

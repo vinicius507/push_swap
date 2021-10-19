@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 22:50:49 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/10/12 14:44:04 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2021/10/19 18:26:16 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,16 @@ void	usage(const char *app)
 
 int	main(int argc, char *argv[])
 {
-	if (argparse(argc - 1, &argv[1]))
+	t_stack	stack;
+
+	ft_bzero(&stack, sizeof(stack));
+	stack.a = argparse(argc - 1, &argv[1]);
+	if (stack.a == NULL)
 	{
+		clear_stacks(&stack);
 		usage(argv[0]);
 		return (EXIT_FAILURE);
 	}
+	clear_stacks(&stack);
 	return (EXIT_SUCCESS);
 }

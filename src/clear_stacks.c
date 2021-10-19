@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   clear_stacks.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 22:51:38 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/10/12 15:17:57 by vgoncalv         ###   ########.fr       */
+/*   Created: 2021/10/19 18:03:55 by vgoncalv          #+#    #+#             */
+/*   Updated: 2021/10/19 18:25:03 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft.h"
-
-typedef struct s_node
+void	clear_nodes(t_node **head)
 {
-	int				value;
-	struct s_node	*previous;
-	struct s_node	*next;
-}	t_node;
+	t_node	*next;
 
-typedef struct s_stack
+	if (head == NULL || *head == NULL)
+		return ;
+	while (*head != NULL)
+	{
+		next = (*head)->next;
+		free(*head);
+		*head = next;
+	}
+}
+
+void	clear_stacks(t_stack *stack)
 {
-	t_node	*a;
-	t_node	*b;
-}	t_stack;
-
-t_node	*argparse(int argc, char **argv);
-
-void	clear_nodes(t_node **head);
-
-void	clear_stacks(t_stack *stack);
-
-#endif
+	if (stack->a != NULL)
+		clear_nodes(&(stack->a));
+	if (stack->b != NULL)
+		clear_nodes(&(stack->b));
+}
