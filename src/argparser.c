@@ -6,23 +6,18 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:14:51 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/01 09:18:36 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2021/12/02 19:46:51 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
-static t_node	*set_value_and_alloc_next(t_node *current, const char *value)
+static char	prepare(t_stack **stack)
 {
-	t_node	*node;
-
-	current->value = ft_atoi(value);
-	node = ft_calloc(1, sizeof(t_node));
-	if (node == NULL)
-		return (NULL);
-	node->previous = current;
-	current->next = node;
-	return (node);
+	*stack = ft_calloc(1, sizeof(t_stack));
+	if (stack == NULL)
+		return (0);
+	return (1);
 }
 
 static char	string_is_numeric(const char *str)
@@ -39,29 +34,43 @@ static char	string_is_numeric(const char *str)
 	return (1);
 }
 
-t_node	*argparse(int argc, char **argv)
+// TODO: search for duplicates
+static t_node	*insert(const char *value, t_node *previous, t_stack *stack)
 {
-	const char	*arg;
-	int			counter;
-	t_node		*head;
-	t_node		*node;
+	t_node	*node;
 
-	node = ft_calloc(1, sizeof(t_node));
+	if (!string_is_numeric(value))
+		return (NULL);
+	node = new_node(ft_atoi(value), previous);
 	if (node == NULL)
 		return (NULL);
-	head = node;
+	if (previous != NULL)
+		previous->next = node;
+	else
+		stack->top = node;
+	node->previous = previous;
+	return (node);
+}
+
+t_stack	*argparse(int argc, char **argv)
+{
+	int			counter;
+	t_stack		*stack;
+	t_node		*node;
+
+	if (!prepare(&stack))
+		return (NULL);
+	node = NULL;
 	counter = -1;
-	while (++counter < argc && head != NULL)
+	while (++counter < argc)
 	{
-		arg = argv[counter];
-		if (!string_is_numeric(arg))
-		{
-			clear_nodes(&head);
-			break ;
-		}
-		node = set_value_and_alloc_next(node, arg);
+		node = insert(argv[counter], node, stack);
 		if (node == NULL)
-			clear_nodes(&head);
+		{
+			clear_stack(&stack);
+			return (NULL);
+		}
 	}
-	return (head);
+	stack->bottom = node;
+	return (stack);
 }

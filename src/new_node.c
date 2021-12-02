@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   new_node.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 22:51:38 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/10/12 15:17:57 by vgoncalv         ###   ########.fr       */
+/*   Created: 2021/12/02 19:14:03 by vgoncalv          #+#    #+#             */
+/*   Updated: 2021/12/02 19:24:23 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <operations/operations.h>
 
-# include "libft.h"
-
-typedef struct s_node
+t_node	*new_node(int value, t_node *previous)
 {
-	int				value;
-	struct s_node	*previous;
-	struct s_node	*next;
-}	t_node;
+	t_node	*node;
 
-typedef struct s_stack
-{
-	t_node	*a;
-	t_node	*b;
-}	t_stack;
-
-t_node	*argparse(int argc, char **argv);
-
-void	clear_nodes(t_node **head);
-
-void	clear_stacks(t_stack *stack);
-
-#endif
+	node = ft_calloc(1, sizeof(t_node));
+	if (node == NULL)
+		return (NULL);
+	node->value = value;
+	if (previous != NULL)
+		node->previous = previous;
+	return (node);
+}

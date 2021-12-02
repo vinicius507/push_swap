@@ -6,24 +6,25 @@
 ##   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        ##
 ##                                                +#+#+#+#+#+   +#+           ##
 ##   Created: 2021/10/11 22:34:13 by vgoncalv          #+#    #+#             ##
-##   Updated: 2021/10/12 14:19:37 by vgoncalv         ###   ########.fr       ##
+##   Updated: 2021/12/02 19:10:02 by vgoncalv         ###   ########.fr       ##
 ##                                                                            ##
 ## ########################################################################## ##
 
 NAME = push_swap
 
 CC = clang
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3
 
 SRC_DIR = ./src
 OBJ_DIR = ./build
 
-INCLUDES_DIR=./includes ./libft/includes
+INCLUDES_DIR=./libft/includes ./src
 INCLUDES := $(addprefix -I,$(INCLUDES_DIR))
 
-SRCS = argparser.c clear_stacks.c
+vpath %.c src src/operations
+SRCS := argparser.c clear_stacks.c error.c is_solved.c \
+	   new_node.c len.c pop.c push.c swap.c
 OBJS := $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
-SRCS := $(addprefix $(SRC_DIR)/,$(SRCS))
 
 RM = rm -f
 
@@ -40,9 +41,9 @@ $(LIBFT):
 	make -C $(LIBFT_DIR)
 
 $(OBJ_DIR):
-	mkdir $(OBJ_DIR)
+	mkdir -p $(OBJ_DIR)/sorters
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(OBJ_DIR)
+$(OBJ_DIR)/%.o: %.c $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(INCLUDES) $< -c -o $@
 
 clean:

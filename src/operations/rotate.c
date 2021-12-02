@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear_stacks.c                                     :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 18:03:55 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/02 18:24:36 by vgoncalv         ###   ########.fr       */
+/*   Created: 2021/12/02 20:06:49 by vgoncalv          #+#    #+#             */
+/*   Updated: 2021/12/02 20:08:22 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include <operations/operations.h>
 
-void	clear_stack(t_stack **stack)
+void	rotate(t_stack *stack)
 {
-	t_node	*next;
+	t_node	*node;
 
-	if (stack == NULL)
+	node = pop(stack);
+	if (node == NULL)
 		return ;
-	while ((*stack)->top != NULL)
-	{
-		next = (*stack)->top->next;
-		free((*stack)->top);
-		(*stack)->top = next;
-	}
-	safe_free((void **)stack);
+	push_bottom(node, stack);
 }
 
-void	clear_stacks(t_push_swap *push_swap)
+void	reverse_rotate(t_stack *stack)
 {
-	if (push_swap == NULL)
+	t_node	*node;
+
+	node = pop_bottom(stack);
+	if (node == NULL)
 		return ;
-	if (push_swap->a != NULL)
-		clear_stack(&(push_swap->a));
-	if (push_swap->b != NULL)
-		clear_stack(&(push_swap->b));
+	push(node, stack);
 }

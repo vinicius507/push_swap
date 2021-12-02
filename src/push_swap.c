@@ -6,35 +6,39 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 22:50:49 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/10/19 18:26:16 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2021/12/02 19:58:57 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
-void	usage(const char *app)
+void	print_stack(t_stack *stack)
 {
-	ft_printf(
-		"usage: %s STACK\n"
-		"sorts a stack of numbers using the Push Swap game rules\n\n"
-		"Mandatory Arguments:\n"
-		"\tSTACK: list of integers separated by spaces\n",
-		app
-		);
+	t_node	*current;
+
+	current = stack->top;
+	ft_printf("[\n");
+	while (current != NULL)
+	{
+		ft_printf("\t%x %x:%d %x",
+			((unsigned long)current->previous) & 0xffffff,
+			((unsigned long)current) & 0xffffff,
+			current->value,
+			((unsigned long)current->next) & 0xffffff);
+		if (current->next != NULL)
+			ft_printf(",\n");
+		current = current->next;
+	}
+	ft_printf("\n]\n");
 }
 
 int	main(int argc, char *argv[])
 {
-	t_stack	stack;
+	t_push_swap	push_swap;
 
-	ft_bzero(&stack, sizeof(stack));
-	stack.a = argparse(argc - 1, &argv[1]);
-	if (stack.a == NULL)
-	{
-		clear_stacks(&stack);
-		usage(argv[0]);
-		return (EXIT_FAILURE);
-	}
-	clear_stacks(&stack);
+	ft_bzero(&push_swap, sizeof(push_swap));
+	push_swap.a = argparse(argc - 1, &argv[1]);
+	if (push_swap.a == NULL)
+		error(&push_swap);
 	return (EXIT_SUCCESS);
 }

@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear_stacks.c                                     :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 18:03:55 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/02 18:24:36 by vgoncalv         ###   ########.fr       */
+/*   Created: 2021/12/02 17:28:45 by vgoncalv          #+#    #+#             */
+/*   Updated: 2021/12/02 18:29:38 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include <operations/operations.h>
 
-void	clear_stack(t_stack **stack)
+void	push(t_node *node, t_stack *stack)
 {
-	t_node	*next;
-
 	if (stack == NULL)
 		return ;
-	while ((*stack)->top != NULL)
+	if (len(stack) == 0)
+		stack->bottom = node;
+	if (stack->top != NULL)
 	{
-		next = (*stack)->top->next;
-		free((*stack)->top);
-		(*stack)->top = next;
+		node->next = stack->top;
+		stack->top->previous = node;
 	}
-	safe_free((void **)stack);
+	stack->top = node;
 }
 
-void	clear_stacks(t_push_swap *push_swap)
+void	push_bottom(t_node *node, t_stack *stack)
 {
-	if (push_swap == NULL)
+	if (stack == NULL)
 		return ;
-	if (push_swap->a != NULL)
-		clear_stack(&(push_swap->a));
-	if (push_swap->b != NULL)
-		clear_stack(&(push_swap->b));
+	if (len(stack) == 0)
+		stack->top = node;
+	if (stack->bottom != NULL)
+	{
+		stack->bottom->next = node;
+		node->previous = stack->bottom;
+	}
+	stack->bottom = node;
 }
