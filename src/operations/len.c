@@ -17,6 +17,8 @@ size_t	len(t_stack *stack)
 	size_t	size;
 	t_node	*current;
 
+	if (stack == NULL)
+		return (0);
 	size = 0;
 	current = stack->top;
 	while (current != NULL)
