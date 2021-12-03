@@ -68,7 +68,8 @@ t_stack	*argparse(int argc, char **argv);
  */
 void	clear_stack(t_stack **stack);
 
-/** Clears both stacks A and B
+/**
+ * Clears both stacks A and B
  * @param push_swap
  */
 void	clear_stacks(t_push_swap *push_swap);
