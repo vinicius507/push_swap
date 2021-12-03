@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:14:51 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/02 19:46:51 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2021/12/03 13:21:48 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,31 @@ static char	string_is_numeric(const char *str)
 	return (1);
 }
 
-// TODO: search for duplicates
-static t_node	*insert(const char *value, t_node *previous, t_stack *stack)
+static char	is_duplicate(int value, t_stack *stack)
 {
 	t_node	*node;
 
-	if (!string_is_numeric(value))
+	node = stack->top;
+	while (node != NULL)
+	{
+		if (node->value == value)
+			return (1);
+		node = node->next;
+	}
+	return (0);
+}
+
+static t_node	*insert(const char *str_value, t_node *previous, t_stack *stack)
+{
+	int		value;
+	t_node	*node;
+
+	if (!string_is_numeric(str_value))
 		return (NULL);
-	node = new_node(ft_atoi(value), previous);
+	value = ft_atoi(str_value);
+	if (is_duplicate(value, stack))
+		return (NULL);
+	node = new_node(value, previous);
 	if (node == NULL)
 		return (NULL);
 	if (previous != NULL)
