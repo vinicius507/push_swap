@@ -17,55 +17,55 @@
 
 /**
  * Gets the length of a stack
- * @param stack t_stack *
+ * @param stack
  * @return size_t
  */
 size_t	len(t_stack *stack);
 
 /**
  * Removes the first element of a stack
- * @param stack t_stack *
+ * @param stack
  * @return t_node *
  */
 t_node	*pop(t_stack *stack);
 
 /**
  * Removes the last element of a stack
- * @param stack t_stack *
+ * @param stack
  * @return t_node *
  */
 t_node	*pop_bottom(t_stack *stack);
 
 /**
  * Inserts an element at the top of the stack
- * @param node t_node *
- * @param stack t_stack *
+ * @param node
+ * @param stack
  */
 void	push(t_node *node, t_stack *stack);
 
 /**
  * Inserts an element at the bottom of the stack
- * @param node t_node *
- * @param stack t_stack *
+ * @param node
+ * @param stack
  */
 void	push_bottom(t_node *node, t_stack *stack);
 
 /**
  * Swaps the first two elements of a stack
- * @param stack t_stack *
+ * @param stack
  * @return t_node *
  */
 void	swap(t_stack *stack);
 
 /**
  * Removes the first element of the stack and places it at the bottom
- * @param stack t_stack *
+ * @param stack
  */
 void	rotate(t_stack *stack);
 
 /**
  * Removes the first element of the stack and places it at the bottom
- * @param stack t_stack *
+ * @param stack
  */
 void	reverse_rotate(t_stack *stack);
 
