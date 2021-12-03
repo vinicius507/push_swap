@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 22:51:38 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/02 19:26:23 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2021/12/03 13:33:38 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@ typedef struct s_push_swap
  * @param push_swap
  */
 void	error(t_push_swap *push_swap);
+
+/**
+ * Checks if the push_swap puzzle is solved
+ * @param push_swap
+ * @return char
+ */
+char	is_solved(t_push_swap *push_swap);
 
 /**
  * Creates a new node
