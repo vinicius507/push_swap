@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   index_puzzle.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 22:50:49 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/14 22:21:40 by vgoncalv         ###   ########.fr       */
+/*   Created: 2021/12/03 20:33:09 by vgoncalv          #+#    #+#             */
+/*   Updated: 2021/12/13 21:11:54 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include <helpers/helpers.h>
 
-int	main(int argc, char *argv[])
+void	index_puzzle(t_push_swap *push_swap)
 {
-	t_push_swap	push_swap;
+	size_t	index;
+	t_node	*node;
 
-	ft_bzero(&push_swap, sizeof(push_swap));
-	push_swap.a = argparse(argc - 1, &argv[1]);
-	if (push_swap.a == NULL)
-		error(&push_swap);
-	push_swap.b = ft_calloc(1, sizeof(t_stack));
-	if (push_swap.b == NULL)
-		error(&push_swap);
-	sort(&push_swap);
-	return (EXIT_SUCCESS);
+	index = 0;
+	node = push_swap->a->_top_sort;
+	while (node != NULL)
+	{
+		node->index = index++;
+		node = node->_next_sort;
+	}
 }

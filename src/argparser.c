@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:14:51 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/03 13:21:48 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:21:32 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,11 @@ static t_node	*insert(const char *str_value, t_node *previous, t_stack *stack)
 	node = new_node(value, previous);
 	if (node == NULL)
 		return (NULL);
-	if (previous != NULL)
-		previous->next = node;
-	else
+	if (previous == NULL)
+	{
 		stack->top = node;
+		stack->_top_sort = node;
+	}
 	node->previous = previous;
 	return (node);
 }
@@ -89,5 +90,6 @@ t_stack	*argparse(int argc, char **argv)
 		}
 	}
 	stack->bottom = node;
+	stack->_bottom_sort = node;
 	return (stack);
 }

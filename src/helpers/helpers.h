@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   helpers.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 22:50:49 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/14 22:21:40 by vgoncalv         ###   ########.fr       */
+/*   Created: 2021/12/03 13:50:28 by vgoncalv          #+#    #+#             */
+/*   Updated: 2021/12/08 18:10:31 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#ifndef HELPERS_H
+# define HELPERS_H
 
-int	main(int argc, char *argv[])
-{
-	t_push_swap	push_swap;
+# include <push_swap.h>
 
-	ft_bzero(&push_swap, sizeof(push_swap));
-	push_swap.a = argparse(argc - 1, &argv[1]);
-	if (push_swap.a == NULL)
-		error(&push_swap);
-	push_swap.b = ft_calloc(1, sizeof(t_stack));
-	if (push_swap.b == NULL)
-		error(&push_swap);
-	sort(&push_swap);
-	return (EXIT_SUCCESS);
-}
+/**
+ * Sortes the puzzle into a private struct attribute _next_sort and _prev_sort
+ * for future indexing.
+ * @param push_swap
+ */
+void	get_sorted(t_push_swap *push_swap);
+
+/**
+ * Indexes the puzzle elements.
+ * @param push_swap
+ */
+void	index_puzzle(t_push_swap *push_swap);
+
+#endif

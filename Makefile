@@ -6,7 +6,7 @@
 ##   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        ##
 ##                                                +#+#+#+#+#+   +#+           ##
 ##   Created: 2021/10/11 22:34:13 by vgoncalv          #+#    #+#             ##
-##   Updated: 2021/12/02 21:02:51 by vgoncalv         ###   ########.fr       ##
+##   Updated: 2021/12/13 21:12:39 by vgoncalv         ###   ########.fr       ##
 ##                                                                            ##
 ## ########################################################################## ##
 
@@ -21,11 +21,11 @@ OBJ_DIR = ./build
 INCLUDES_DIR=./libft/includes $(SRC_DIR)
 INCLUDES := $(addprefix -I,$(INCLUDES_DIR))
 
-vpath %.c src src/operations src/instructions
+vpath %.c src src/operations src/instructions src/sorters src/helpers
 SRCS := argparser.c clear_stacks.c error.c new_node.c \
 		len.c pop.c push.c swap.c rotate.c pa.c pb.c \
 		sa.c sb.c ss.c ra.c rb.c rr.c rra.c rrb.c rrr.c \
-		is_solved.c
+		is_solved.c sort.c get_sorted.c index_puzzle.c
 OBJS := $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 
 RM = rm -f

@@ -18,21 +18,18 @@
 /**
  * Gets the length of a stack
  * @param stack
- * @return size_t
  */
 size_t	len(t_stack *stack);
 
 /**
  * Removes the first element of a stack
  * @param stack
- * @return t_node *
  */
 t_node	*pop(t_stack *stack);
 
 /**
  * Removes the last element of a stack
  * @param stack
- * @return t_node *
  */
 t_node	*pop_bottom(t_stack *stack);
 
@@ -53,7 +50,6 @@ void	push_bottom(t_node *node, t_stack *stack);
 /**
  * Swaps the first two elements of a stack
  * @param stack
- * @return t_node *
  */
 void	swap(t_stack *stack);
 
