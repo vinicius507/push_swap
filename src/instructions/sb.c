@@ -12,8 +12,9 @@
 
 #include <instructions/instructions.h>
 
-void	sb(t_push_swap *push_swap)
+void	sb(t_push_swap *push_swap, char print)
 {
 	swap(push_swap->b);
-	ft_printf("sb\n");
+	if (print)
+		ft_printf("sb\n");
 }

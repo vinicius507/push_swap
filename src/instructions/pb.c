@@ -12,7 +12,7 @@
 
 #include <instructions/instructions.h>
 
-void	pb(t_push_swap *push_swap)
+void	pb(t_push_swap *push_swap, char print)
 {
 	t_node	*node;
 
@@ -20,5 +20,6 @@ void	pb(t_push_swap *push_swap)
 	if (node == NULL)
 		return ;
 	push(node, push_swap->b);
-	ft_printf("pb\n");
+	if (print)
+		ft_printf("pb\n");
 }

@@ -25,20 +25,20 @@ static void	sort_three(t_push_swap *push_swap)
 	n2 = n1->next;
 	n3 = n2->next;
 	if (n2->index < n1->index && n1->index < n3->index)
-		sa(push_swap);
+		sa(push_swap, 1);
 	else if (n2->index < n3->index && n3->index < n1->index)
-		ra(push_swap);
+		ra(push_swap, 1);
 	else if (n3->index < n1->index && n1->index < n2->index)
-		rra(push_swap);
+		rra(push_swap, 1);
 	else if (n3->index < n2->index && n2->index < n1->index)
 	{
-		sa(push_swap);
-		rra(push_swap);
+		sa(push_swap, 1);
+		rra(push_swap, 1);
 	}
 	else if (n1->index < n3->index && n3->index < n2->index)
 	{
-		sa(push_swap);
-		ra(push_swap);
+		sa(push_swap, 1);
+		ra(push_swap, 1);
 	}
 }
 
@@ -50,7 +50,7 @@ static void	pb_n_smallest(t_push_swap *push_swap, int n)
 	while (n--)
 	{
 		smart_rotate_a(push_swap, node);
-		pb(push_swap);
+		pb(push_swap, 1);
 		node = node->_next_sort;
 	}
 }
@@ -58,7 +58,7 @@ static void	pb_n_smallest(t_push_swap *push_swap, int n)
 void	small(t_push_swap *push_swap)
 {
 	if (push_swap->len == 2)
-		sa(push_swap);
+		sa(push_swap, 1);
 	else if (push_swap->len == 3)
 		sort_three(push_swap);
 	else if (push_swap->len <= 5)
@@ -68,9 +68,9 @@ void	small(t_push_swap *push_swap)
 		if (len(push_swap->b) == 2)
 		{
 			if (push_swap->b->top->index < push_swap->b->bottom->index)
-				sb(push_swap);
-			pa(push_swap);
+				sb(push_swap, 1);
+			pa(push_swap, 1);
 		}
-		pa(push_swap);
+		pa(push_swap, 1);
 	}
 }

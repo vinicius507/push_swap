@@ -12,9 +12,10 @@
 
 #include <instructions/instructions.h>
 
-void	rrr(t_push_swap *push_swap)
+void	rrr(t_push_swap *push_swap, char print)
 {
 	reverse_rotate(push_swap->a);
 	reverse_rotate(push_swap->b);
-	ft_printf("rrr\n");
+	if (print)
+		ft_printf("rrr\n");
 }
