@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 22:51:38 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/13 20:58:13 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2021/12/28 22:05:17 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,12 @@ void	clear_stack(t_stack **stack);
  * @param push_swap
  */
 void	clear_stacks(t_push_swap *push_swap);
+
+/**
+ * Prepares for the sorting
+ * @param push_swap
+ */
+void	prepare(t_push_swap *push_swap);
 
 /**
  * Sorts the puzzle's stack

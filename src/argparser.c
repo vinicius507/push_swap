@@ -6,13 +6,13 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:14:51 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/03 16:21:32 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2021/12/28 22:15:35 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static char	prepare(t_stack **stack)
+static char	prepare_args(t_stack **stack)
 {
 	*stack = ft_calloc(1, sizeof(t_stack));
 	if (stack == NULL)
@@ -76,7 +76,7 @@ t_stack	*argparse(int argc, char **argv)
 	t_stack		*stack;
 	t_node		*node;
 
-	if (!prepare(&stack))
+	if (!prepare_args(&stack))
 		return (NULL);
 	node = NULL;
 	counter = -1;
