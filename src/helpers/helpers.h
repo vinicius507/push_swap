@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 13:50:28 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/28 23:10:00 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2021/12/29 03:10:04 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ int		distance(t_stack *stack, t_node *target);
 /**
  * Smart rotates stack A
  * @param push_swap
- * @param n: distance
+ * @param node
  */
-void	smart_rotate_a(t_push_swap *push_swap, int n);
+void	smart_rotate_a(t_push_swap *push_swap, t_node *node);
 
 /**
  * Smart rotates stack B
  * @param push_swap
- * @param n: distance
+ * @param node
  */
-void	smart_rotate_b(t_push_swap *push_swap, int n);
+void	smart_rotate_b(t_push_swap *push_swap, t_node *node);
 
 #endif
