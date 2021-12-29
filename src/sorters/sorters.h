@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   sorters.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/03 16:42:58 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/29 03:33:45 by vgoncalv         ###   ########.fr       */
+/*   Created: 2021/12/29 03:20:22 by vgoncalv          #+#    #+#             */
+/*   Updated: 2021/12/29 03:21:27 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
-#include <sorters/sorters.h>
+#ifndef SORTERS_H
+# define SORTERS_H
 
-void	sort(t_push_swap *push_swap)
-{
-	if (push_swap->len <= 5)
-		small(push_swap);
-}
+# include <push_swap.h>
+
+void	small(t_push_swap *push_swap);
+
+#endif
