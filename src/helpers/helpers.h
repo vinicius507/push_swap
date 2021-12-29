@@ -35,4 +35,18 @@ void	index_puzzle(t_push_swap *push_swap);
  */
 int		distance(t_stack *stack, t_node *target);
 
+/**
+ * Smart rotates stack A
+ * @param push_swap
+ * @param n: distance
+ */
+void	smart_rotate_a(t_push_swap *push_swap, int n);
+
+/**
+ * Smart rotates stack B
+ * @param push_swap
+ * @param n: distance
+ */
+void	smart_rotate_b(t_push_swap *push_swap, int n);
+
 #endif
