@@ -6,7 +6,7 @@
 ##   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        ##
 ##                                                +#+#+#+#+#+   +#+           ##
 ##   Created: 2021/10/11 22:34:13 by vgoncalv          #+#    #+#             ##
-##   Updated: 2021/12/28 22:50:54 by vgoncalv         ###   ########.fr       ##
+##   Updated: 2021/12/29 01:40:21 by vgoncalv         ###   ########.fr       ##
 ##                                                                            ##
 ## ########################################################################## ##
 
@@ -26,7 +26,7 @@ SRCS := argparser.c clear_stacks.c error.c new_node.c \
 		len.c pop.c push.c swap.c rotate.c pa.c pb.c \
 		sa.c sb.c ss.c ra.c rb.c rr.c rra.c rrb.c rrr.c \
 		is_solved.c get_sorted.c index_puzzle.c prepare.c \
-		sort.c 
+		distance.c sort.c
 OBJS := $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 
 RM = rm -f
