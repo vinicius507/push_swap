@@ -15,4 +15,5 @@
 void	rrb(t_push_swap *push_swap)
 {
 	reverse_rotate(push_swap->b);
+	ft_printf("rrb\n");
 }

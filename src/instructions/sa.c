@@ -15,4 +15,5 @@
 void	sa(t_push_swap *push_swap)
 {
 	swap(push_swap->a);
+	ft_printf("sa\n");
 }

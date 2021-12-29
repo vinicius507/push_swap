@@ -14,6 +14,7 @@
 
 void	rrr(t_push_swap *push_swap)
 {
-	rra(push_swap);
-	rrb(push_swap);
+	reverse_rotate(push_swap->a);
+	reverse_rotate(push_swap->b);
+	ft_printf("rrr\n");
 }

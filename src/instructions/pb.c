@@ -20,4 +20,5 @@ void	pb(t_push_swap *push_swap)
 	if (node == NULL)
 		return ;
 	push(node, push_swap->b);
+	ft_printf("pb\n");
 }

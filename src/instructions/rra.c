@@ -15,4 +15,5 @@
 void	rra(t_push_swap *push_swap)
 {
 	reverse_rotate(push_swap->a);
+	ft_printf("rra\n");
 }
