@@ -25,5 +25,6 @@ int	main(int argc, char *argv[])
 		error(&push_swap);
 	prepare(&push_swap);
 	sort(&push_swap);
+	clear_stacks(&push_swap);
 	return (EXIT_SUCCESS);
 }

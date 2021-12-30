@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorters.h                                          :+:      :+:    :+:   */
+/*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/29 03:20:22 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/29 20:57:40 by vgoncalv         ###   ########.fr       */
+/*   Created: 2021/12/30 00:16:31 by vgoncalv          #+#    #+#             */
+/*   Updated: 2021/12/30 01:55:14 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORTERS_H
-# define SORTERS_H
+#include <helpers/helpers.h>
 
-# include <push_swap.h>
+t_node	*loop_next(t_push_swap *push_swap, t_node *current)
+{
+	if (current->next == NULL)
+		return (push_swap->a->top);
+	return (current->next);
+}
 
-void	small(t_push_swap *push_swap);
-
-void	big(t_push_swap *push_swap);
-
-#endif
+t_node	*loop_prev(t_push_swap *push_swap, t_node *current)
+{
+	if (current->previous == NULL)
+		return (push_swap->a->bottom);
+	return (current->previous);
+}

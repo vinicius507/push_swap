@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 22:51:38 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/28 22:05:17 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2021/12/29 22:19:43 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_node
 {
 	int				value;
 	int				index;
+	char			lock;
 	struct s_node	*next;
 	struct s_node	*previous;
 	struct s_node	*_next_sort;
@@ -38,6 +39,7 @@ typedef struct s_push_swap
 	t_stack	*a;
 	t_stack	*b;
 	uint	len;
+	t_node	*markup_head;
 }	t_push_swap;
 
 /**

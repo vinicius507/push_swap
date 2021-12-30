@@ -26,7 +26,8 @@ SRCS := argparser.c clear_stacks.c error.c new_node.c \
 		len.c pop.c push.c swap.c rotate.c pa.c pb.c \
 		sa.c sb.c ss.c ra.c rb.c rr.c rra.c rrb.c rrr.c \
 		is_solved.c get_sorted.c index_puzzle.c prepare.c \
-		distance.c smart_rotate.c sort.c small.c
+		distance.c smart_rotate.c sort.c small.c markup.c \
+		loop.c lock.c big.c
 OBJS := $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 
 RM = rm -f
