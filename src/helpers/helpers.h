@@ -16,7 +16,7 @@
 # include <push_swap.h>
 
 /**
- * Sortes the puzzle into a private struct attribute _next_sort and _prev_sort
+ * Sorts the puzzle into a private struct attribute _next_sort and _prev_sort
  * for future indexing.
  * @param push_swap
  */
