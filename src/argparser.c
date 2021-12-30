@@ -6,11 +6,12 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:14:51 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/28 22:15:35 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2021/12/30 02:53:51 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
+#include <helpers/helpers.h>
 
 static char	prepare_args(t_stack **stack)
 {
@@ -73,10 +74,12 @@ static t_node	*insert(const char *str_value, t_node *previous, t_stack *stack)
 t_stack	*argparse(int argc, char **argv)
 {
 	int			counter;
+	char		single;
 	t_stack		*stack;
 	t_node		*node;
 
-	if (!prepare_args(&stack))
+	single = argc == 1;
+	if (!prepare_args(&stack) || !prepare_single_arg(&argc, &argv))
 		return (NULL);
 	node = NULL;
 	counter = -1;
@@ -91,5 +94,6 @@ t_stack	*argparse(int argc, char **argv)
 	}
 	stack->bottom = node;
 	stack->_bottom_sort = node;
+	clear_args(single, argv);
 	return (stack);
 }

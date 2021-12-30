@@ -15,6 +15,8 @@
 
 void	sort(t_push_swap *push_swap)
 {
+	if (is_solved(push_swap))
+		return ;
 	if (push_swap->len <= 5)
 		small(push_swap);
 	else

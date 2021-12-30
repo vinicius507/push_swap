@@ -22,7 +22,7 @@ INCLUDES_DIR=./libft/includes $(SRC_DIR)
 INCLUDES := $(addprefix -I,$(INCLUDES_DIR))
 
 vpath %.c src src/operations src/instructions src/sorters src/helpers
-SRCS := argparser.c clear_stacks.c error.c new_node.c \
+SRCS := args.c argparser.c clear_stacks.c error.c new_node.c \
 		len.c pop.c push.c swap.c rotate.c pa.c pb.c \
 		sa.c sb.c ss.c ra.c rb.c rr.c rra.c rrb.c rrr.c \
 		is_solved.c get_sorted.c index_puzzle.c prepare.c \

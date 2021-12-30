@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 13:50:28 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/30 01:15:45 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2021/12/30 02:52:32 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,21 @@
 # define HELPERS_H
 
 # include <push_swap.h>
+
+/**
+ * Prepares argc and argv for single argument
+ * E.g.: string of numbers separated by space
+ * @param argc
+ * @param argv
+ */
+char	prepare_single_arg(int *argc, char ***argv);
+
+/**
+ * Frees argv if it was allocated
+ * @param single_arg: whether args were allocated
+ * @param argv
+ */
+void	clear_args(char single_arg, char **argv);
 
 /**
  * Sorts the puzzle into a private struct attribute _next_sort and _prev_sort
