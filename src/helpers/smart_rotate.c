@@ -32,7 +32,7 @@ void	smart_rotate_b(t_push_swap *push_swap, t_node *node)
 {
 	int	dist;
 
-	dist = distance(push_swap->a, node);
+	dist = distance(push_swap->b, node);
 	if (dist < 0)
 	{
 		while (dist++)
