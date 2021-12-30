@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:14:51 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/30 03:10:42 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2021/12/30 03:21:15 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static char	string_is_numeric(const char *str)
 		return (0);
 	if (*str == '+' || *str == '-')
 		str++;
+	if (*str == '\0')
+		return (0);
 	while (*str)
 	{
 		if (!ft_isdigit(*str++))
