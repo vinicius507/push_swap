@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:14:51 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/30 02:53:51 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2021/12/30 03:10:42 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,16 @@ static char	is_duplicate(int value, t_stack *stack)
 
 static t_node	*insert(const char *str_value, t_node *previous, t_stack *stack)
 {
-	int		value;
-	t_node	*node;
+	int				value;
+	long long int	ll_value;
+	t_node			*node;
 
 	if (!string_is_numeric(str_value))
 		return (NULL);
+	ll_value = ft_atoll(str_value);
 	value = ft_atoi(str_value);
+	if (ll_value != value)
+		return (NULL);
 	if (is_duplicate(value, stack))
 		return (NULL);
 	node = new_node(value, previous);
