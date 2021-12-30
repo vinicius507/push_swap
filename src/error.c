@@ -15,6 +15,6 @@
 void	error(t_push_swap *push_swap)
 {
 	clear_stacks(push_swap);
-	ft_printf("Error\n");
+	ft_dprintf(2, "Error\n");
 	exit(EXIT_FAILURE);
 }
