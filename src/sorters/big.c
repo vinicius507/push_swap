@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 04:06:59 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/12/30 02:00:25 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2022/01/05 17:01:38 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ static t_node	*get_candidate(t_push_swap *push_swap)
 	t_node	*node;
 	t_node	*candidate;
 
+	dist_pos = 0;
 	dist = 0xFFFFFF;
 	candidate = NULL;
 	node = push_swap->b->top;
