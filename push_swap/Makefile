@@ -18,7 +18,11 @@ CFLAGS = -Wall -Werror -Wextra -g3
 SRC_DIR = ./src
 OBJ_DIR = ./build
 
-INCLUDES_DIR=./libft/includes $(SRC_DIR)
+LIBFT_PATH ?= ./libft
+LIBFT = $(LIBFT_PATH)/lib/libft.a
+LIBFT_FLAGS = -L$(LIBFT_PATH)/lib -lft
+
+INCLUDES_DIR = $(LIBFT_PATH)/include $(SRC_DIR)
 INCLUDES := $(addprefix -I,$(INCLUDES_DIR))
 
 vpath %.c src src/operations src/instructions src/sorters src/helpers
@@ -32,17 +36,13 @@ OBJS := $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 
 RM = rm -f
 
-LIBFT_DIR = ./libft
-LIBFT = $(LIBFT_DIR)/libft.a
-LIBFT_FLAGS = -L$(LIBFT_DIR) -lft
-
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
 	$(CC) $(CFLAGS) $(INCLUDES) $^ $(SRC_DIR)/$(NAME).c $(LIBFT_FLAGS) -o $@
 
 $(LIBFT):
-	make -C $(LIBFT_DIR)
+	make -C $(LIBFT_PATH)
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)/sorters
@@ -52,11 +52,11 @@ $(OBJ_DIR)/%.o: %.c $(OBJ_DIR)
 
 clean:
 	$(RM) -r $(OBJ_DIR)
-	make clean -C $(LIBFT_DIR)
+	make clean -C $(LIBFT_PATH)
 
 fclean: clean
 	$(RM) $(NAME)
-	make fclean -C $(LIBFT_DIR)
+	make fclean -C $(LIBFT_PATH)
 
 re: fclean all
 

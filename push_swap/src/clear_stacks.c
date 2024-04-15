@@ -24,7 +24,11 @@ void	clear_stack(t_stack **stack)
 		free((*stack)->top);
 		(*stack)->top = next;
 	}
-	safe_free((void **)stack);
+  if (*stack == NULL) {
+    return;
+  }
+  free(*stack);
+  *stack = NULL;
 }
 
 void	clear_stacks(t_push_swap *push_swap)
